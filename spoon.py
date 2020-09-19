@@ -14,6 +14,7 @@ from flask import Flask, render_template #so we don't need to add "flask.Flask, 
 import os
 import requests
 
+
 app = Flask(__name__)
 @app.route("/")
 
@@ -21,11 +22,11 @@ def index():
     
     #Opens API link
     
-    apiLink = "https://api.spoonacular.com/recipes/random&number=1"
-    apiData = requests.get(apiLink)
+    api_Link = os.environ["SPOON_API_LINK"]
+    api_Data = requests.get(api_Link)
 
     #Places API data in a usable package
-    pack_apiData = apiData.json()
+    pack_apiData = api_Data.json()
 
     #Sets each desired attribute using JSON
     jOverview = pack_apiData["recipes"][0]

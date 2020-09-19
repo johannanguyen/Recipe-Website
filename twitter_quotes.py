@@ -1,40 +1,32 @@
-import tweepy
-from twitter_credentials import *
+from tweepy import Stream
+from tweepy import OAuthHandler
+from tweepy.streaming import StreamListener
+import time
+import os
 
-#Create a StreamListener
-class my_listener(tweepy.StreamListener):
+api_key = os.environ["API_KEY"]
+api_secret_key = os.environ["API_SECRET_KEY"]
+access_token = os.environ["ACCESS_TOKEN"]
+access_token_secret  = os.environ["ACCESS_TOKEN_SECRET"]
+ 
+class listener(StreamListener):
     
-    def on_data(self, raw_data):
-        self.process_data(raw_data)
+    def on_data(self, data):
+
+        tweet=data.split(',"text":"')[1].split('","source')[0]
+        print(tweet+"\n")
+        savefile=str(time.time())+"::"+tweet
+        save=open('twitter_list.csv','a')
+        save.write(savefile)
+        save.write("\n\n")
+        save.close()
         return True
-        
-    def process_data(self, raw_data):
-        print(raw_data)
 
-    def on_error(self, status_code):
-        if status_code == 420:
-            return False
-            
-#Create a Stream
-class my_stream():
-    
-    def __init__(self, auth, listener):
-        
-        #Doesn't do anything with the stream, only makes it
-        self.stream = tweepy.Stream(auth=auth, listener=listener)
-        
-    def start(self, keyword_list):
-        
-        #Track can be anything you want to search Tweets for
-        self.stream.filter(track="keyword_list")
-
-#Start the stream
-if __name__ == "__main__":
-    
-    listener = my_listener()
-    
-    auth = tweepy.OAuthHandler(API_KEY, API_SECRET_KEY)
-    auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
-    
-    stream = my_stream(auth, listener)
-    stream.start(["ice cream"])
+    def on_error(self, status):
+        print (status)
+ 
+auth = OAuthHandler(api_key, api_secret_key)
+auth.set_access_token(access_token, access_token_secret)
+ 
+twitterStream = Stream(auth, listener())
+twitterStream.filter(track=["pasta"])
