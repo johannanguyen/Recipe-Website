@@ -1,4 +1,11 @@
+<!-- Original
 <h1>{{ hTitle }}</h1>
 <h2>Keyword: {{ hKeyword }}</h2>
 <b>Source URL: </b>{{ hURL }}<<br>
-<img src = {{ hImage }}>
+<img src = {{ hImage }}><br>
+<h3>tweets: {{hTweets}}</h3>
+-->
+
+<img src="{{ hTweets[0] }}" width="25", height="25"> <b>{{ hTweets[1] }} |</b> {{ hTweets[2] }}<br><br>
+"{{ hTweets[3] }}"<br><br>
+<i>{{ hTweets[4] }}</i><br>
