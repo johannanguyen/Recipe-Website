@@ -30,4 +30,4 @@ In order to use this repository:
 12. Execute the program by running the following in your terminal:
     python twitter_recipe.py
     
-<img src="https://ibb.co/zZCpdf1" width="300" height="300">
+<img src="https://i.ibb.co/KWBdnyY/p1m1.png" width="300" height="300">
