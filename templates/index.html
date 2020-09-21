@@ -1,11 +1,56 @@
-<!-- Original
-<h1>{{ hTitle }}</h1>
-<h2>Keyword: {{ hKeyword }}</h2>
-<b>Source URL: </b>{{ hURL }}<<br>
-<img src = {{ hImage }}><br>
-<h3>tweets: {{hTweets}}</h3>
--->
 
-<img src="{{ hTweets[0] }}" width="25", height="25"> <b>{{ hTweets[1] }} |</b> {{ hTweets[2] }}<br><br>
-"{{ hTweets[3] }}"<br><br>
-<i>{{ hTweets[4] }}</i><br>
+
+<!DOCTYPE html>
+<html lang = "en">
+    
+<head>
+    <link rel= stylesheet type=text/css href= {{ url_for('static', filename='styles.css') }}>
+</head>
+
+<body>
+    <div class = "background">
+        <div class = "image">
+            <img src="{{ food[2] }}" width="395" height="322">
+        </div>
+
+            <div class = "ingredients">
+                <p class ="header">{{ food[1] }}</p>
+                <p class = "text">
+                    {%for i in range(0, len)%} 
+  
+                    {{recipe[i]}}<br>
+                    {%endfor%} 
+                </p>
+            </div>
+            
+            <div class = "tweet">
+                <p class ="header">tweets</p>
+                
+                <p class = "text">
+                    <img src = "{{ tweet[0][0] }}" width="25" height="25">  
+                    <b>{{ tweet[0][1] }}</b> | {{ tweet[0][2] }} <br>
+                    "{{ tweet[0][3] }}"<br>
+                    <i>{{ tweet[0][4] }} </i><br><br>
+                    
+                    <img src = "{{ tweet[1][0] }}" width="25" height="25">  
+                    <b>{{ tweet[1][1] }}</b> | {{ tweet[1][2] }} <br>
+                    "{{ tweet[1][3] }}"<br>
+                    <i>{{ tweet[1][4] }} </i><br><br>
+                    
+                    <img src = "{{ tweet[2][0] }}" width="25" height="25">  
+                    <b>{{ tweet[2][1] }}</b> | {{ tweet[2][2] }} <br>
+                    "{{ tweet[2][3] }}"<br>
+                    <i>{{ tweet[2][4] }} </i><br><br>
+                    
+                </p>
+            </div>
+
+            <div class = "link">
+                <p class ="header">source</p>
+                <p class = "text">
+                    Click below to view full source!<br>
+                    <a href="{{ source[1] }}">{{ source[0] }}</a>
+                </p>
+            </div>
+    </div>
+</body>

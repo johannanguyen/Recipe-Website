@@ -1,0 +1,89 @@
+.background
+{
+    background-color: #D9D5D4;
+}
+
+.header 
+{
+    background-color: #D9D5D4;
+    border-bottom: 1px solid black;
+    font-family: Century Gothic;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: right;
+    text-transform: uppercase;
+}
+.image
+{
+    text-align: left;
+    position: relative;
+    left: 35px;
+    top: 38px;
+    width: 395px;
+    height: 322px;
+    border: 2px solid white;
+}
+
+.link
+{
+    text-align: left;
+    position: relative;
+    left: 457px;
+    top: -489px;
+    width: 261px;
+    height: 92px;
+    border: 2px solid white;
+    background-color: #E9E9E9;
+    overflow-x: auto;
+}
+
+.ingredients
+{
+    text-align: left;
+    position: relative;
+    left: 35px;
+    top: 53px;
+    height: 211px;
+    width: 393px;
+    border: 2px solid white;
+    background-color: #E9E9E9;
+    overflow-y: auto;
+}
+ 
+.tweet
+{
+    text-align: left;
+    position: relative;
+    left: 457px;
+    top: -503px;
+    width: 261px;
+    height: 442px;
+    border: 2px solid white;
+    background-color: #E9E9E9;
+    overflow-y: auto;
+}
+
+.text
+{
+    font-family: 'Garamond';
+    font-size: 14px;
+}
+
+a:link 
+{
+    text-transform: uppercase;
+    color: black;
+}
+
+a:visited
+{
+    color: black;
+}
+
+a:hover
+{
+    letter-spacing: 1px;
+}
