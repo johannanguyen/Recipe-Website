@@ -3,6 +3,7 @@
 This website displays recipe information and tweets of a randomly selected dish.
 
 In order to use this repository:
+
 0. Sign up for a Twitter developer account at: https://developer.twitter.com
 1. Create a new app: https://developer.twitter.com/en/portal/projects-and-apps
 2. Click on the key icon to display your keys
@@ -48,6 +49,5 @@ Remaining Issues:
     I am currently grabbing recipe and source data separately, but by using the same API call twice. I will be
     able to have both field populatings correctly with a single API call by parsing the json files more carefully
     as well as making the overall code more modular. 
-    
-Example: 
+
 <img src="https://i.ibb.co/KWBdnyY/p1m1.png">
