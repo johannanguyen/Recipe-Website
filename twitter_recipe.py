@@ -55,32 +55,22 @@ def get_food(keyword):
     
 
 #Grab source data using keyword
-def get_source(food_id):
-    source_link = f"https://api.spoonacular.com/recipes/{food_id}/information?includeNutrition=false&apiKey={spoon_api}"
-    source_data = requests.get(source_link)
-    pack_source_data = source_data.json()
+def get_source_recipe(food_id):
+    source_recipe_link = f"https://api.spoonacular.com/recipes/{food_id}/information?includeNutrition=false&apiKey={spoon_api}"
+    source_recipe_data = requests.get(source_recipe_link)
+    pack_source_recipe_data = source_recipe_data.json()
     
-    source_list = []
-    source_list.append(pack_source_data["sourceName"])
-    source_list.append(pack_source_data["sourceUrl"])
+    source_recipe = []
+    source_recipe.append(pack_source_recipe_data["sourceName"])
+    source_recipe.append(pack_source_recipe_data["sourceUrl"])
     
-    return source_list
-    
-    
-#Grab recipe information by food id
-def get_recipe(food_id):
-    recipe_link = f"https://api.spoonacular.com/recipes/{food_id}/information?includeNutrition=false&apiKey={spoon_api}"
-    recipe_data = requests.get(recipe_link)
-    pack_recipe_data = recipe_data.json()
-    
-    recipe_object = pack_recipe_data["extendedIngredients"]
+    recipe_object = pack_source_recipe_data["extendedIngredients"]
     length = len(recipe_object)
-    recipe_list = []
     
     for i in range(0, length):
-        recipe_list.append(recipe_object[i]["originalString"])
+        source_recipe.append(recipe_object[i]["originalString"])
     
-    return recipe_list
+    return source_recipe
 
 
 #Run the app
@@ -99,16 +89,14 @@ def index():
     selected_keyword = random.choice(keywords)
     tweet = get_tweet(auth_api, selected_keyword)
     food = get_food(selected_keyword)
-    recipe = get_recipe(food[0])
-    source = get_source(food[0])
+    source_recipe = get_source_recipe(food[0])
     
     return render_template(
         "index.html",
-        len = len(recipe),
         food = food,
-        recipe = recipe,
         tweet = tweet,
-        source = source
+        source_recipe = source_recipe,
+        len = len(source_recipe)
         )
         
 app.run(
