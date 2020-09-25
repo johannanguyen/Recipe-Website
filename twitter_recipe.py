@@ -52,6 +52,7 @@ def get_food(keyword):
     food_list.append(food_object["image"])
 
     return food_list
+    
 
 #Grab source data using keyword
 def get_source(food_id):
@@ -87,11 +88,11 @@ app = Flask(__name__)
 @app.route("/")
 
 def index():
-    keywords = ["chicken", "ice cream", "pasta", "steak",
-            "popcorn", "taco", "burrito", "salad",
-            "sandwich", "bacon", "salmon", "burger",
-            "cheesecake", "tres leches", "beef stew",
-            "pizza", "pineapple", "sushi"]
+    keywords = ["cheesecake", "banana pudding", "funnel cake",
+                "ice cream", "sundae", "cookie", "elcair",
+                "doughnut", "mango float", "tiramisu", "creme brulee",
+                "smores", "churro", "baklava", "ice cream float",
+                "gelato", "tart", "pie"]
             
 
 #Generate the proper tweets, recipes
