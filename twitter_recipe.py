@@ -88,11 +88,9 @@ app = Flask(__name__)
 @app.route("/")
 
 def index():
-    keywords = ["cheesecake", "banana pudding", "funnel cake",
-                "ice cream", "sundae", "cookie", "elcair",
-                "doughnut", "mango float", "tiramisu", "creme brulee",
-                "smores", "churro", "baklava", "ice cream float",
-                "gelato", "tart", "pie"]
+    keywords = ["cheesecake", "banana pudding", "ice cream", "sundae", 
+                "cookie", "doughnut",  "tiramisu", "creme brulee",
+                "smores", "churro", "gelato", "tart", "pie"]
             
 
 #Generate the proper tweets, recipes
