@@ -1,12 +1,23 @@
 .background
 {
-    background-color: #D9D5D4;
+    background-color: #708290;
+}
+
+.TA 
+{
+    scrollbar-3dlight-color:gold;
+    scrollbar-arrow-color:blue;
+    scrollbar-base-color:black;
+    scrollbar-darkshadow-color:blue;
+    scrollbar-face-color:white;
+    scrollbar-highlight-color:pink;
+    scrollbar-shadow-color:black;
 }
 
 .header 
 {
-    background-color: #D9D5D4;
-    border-bottom: 1px solid black;
+    background-color: #b4a2ac;
+    border-bottom: 3px solid #8d8d8d;
     font-family: Century Gothic;
     font-size: 14px;
     font-weight: normal;
@@ -15,6 +26,7 @@
     padding-bottom: 5px;
     text-align: right;
     text-transform: uppercase;
+    letter-spacing: -1px;
 }
 .image
 {
@@ -22,7 +34,7 @@
     position: relative;
     left: 35px;
     top: 38px;
-    width: 395px;
+    width: 391px;
     height: 322px;
     border: 2px solid white;
 }
@@ -34,7 +46,7 @@
     left: 457px;
     top: -489px;
     width: 261px;
-    height: 92px;
+    height: 94px;
     border: 2px solid white;
     background-color: #E9E9E9;
     overflow-x: auto;
@@ -63,7 +75,6 @@
     height: 442px;
     border: 2px solid white;
     background-color: #E9E9E9;
-    overflow-y: auto;
 }
 
 .text
@@ -72,18 +83,22 @@
     font-size: 14px;
 }
 
-a:link 
+a:active,a:visited,a:link
 {
-    text-transform: uppercase;
-    color: black;
-}
-
-a:visited
-{
-    color: black;
+    font-size:14px;
+    color:#000000;
+    font-family: Garamond;
+    text-decoration: none;
+    font-weight:normal;
+    cursor:default;
 }
 
 a:hover
 {
-    letter-spacing: 1px;
+    display:block;
+    padding:0px;
+    text-align:left;
+    background-color:#dad5dc;
+    border-right:4px solid;
+    border-color: #8D8D8D;
 }

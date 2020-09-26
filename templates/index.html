@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang = "en">
     
@@ -10,38 +8,27 @@
 <body>
     <div class = "background">
         <div class = "image">
-            <img src="{{ food[2] }}" width="395" height="322">
+            <img src="{{ food[2] }}" width="392" height="322">
         </div>
 
             <div class = "ingredients">
                 <p class ="header">{{ food[1] }}</p>
                 <p class = "text">
-                    {%for i in range(0, len)%} 
-  
-                    {{recipe[i]}}<br>
+                    {%for i in range(2, len)%} 
+                      {{source_recipe[i]}}<br>
                     {%endfor%} 
                 </p>
             </div>
             
             <div class = "tweet">
                 <p class ="header">tweets</p>
-                
                 <p class = "text">
-                    <img src = "{{ tweet[0][0] }}" width="25" height="25">  
-                    <b>{{ tweet[0][1] }}</b> | {{ tweet[0][2] }} <br>
-                    "{{ tweet[0][3] }}"<br>
-                    <i>{{ tweet[0][4] }} </i><br><br>
-                    
-                    <img src = "{{ tweet[1][0] }}" width="25" height="25">  
-                    <b>{{ tweet[1][1] }}</b> | {{ tweet[1][2] }} <br>
-                    "{{ tweet[1][3] }}"<br>
-                    <i>{{ tweet[1][4] }} </i><br><br>
-                    
-                    <img src = "{{ tweet[2][0] }}" width="25" height="25">  
-                    <b>{{ tweet[2][1] }}</b> | {{ tweet[2][2] }} <br>
-                    "{{ tweet[2][3] }}"<br>
-                    <i>{{ tweet[2][4] }} </i><br><br>
-                    
+                    {%for i in range(0, 3)%}
+                        <img src = "{{ tweet[i][0] }}" width="25" height="25">  
+                        <b>{{ tweet[i][1] }}</b> | {{ tweet[i][2] }} <br>
+                         "{{ tweet[i][3] }}"<br>
+                        <i>{{ tweet[i][4] }} </i><br><br>
+                    {%endfor%}
                 </p>
             </div>
 
@@ -49,7 +36,7 @@
                 <p class ="header">source</p>
                 <p class = "text">
                     Click below to view full source!<br>
-                    <a href="{{ source[1] }}">{{ source[0] }}</a>
+                    <a href="{{ source_recipe[1] }}">{{ source_recipe[0] }}</a>
                 </p>
             </div>
     </div>
