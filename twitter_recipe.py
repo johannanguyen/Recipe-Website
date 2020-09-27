@@ -41,11 +41,12 @@ def get_tweet(auth, keyword):
     
 #Grab food information using keyword
 def get_food(keyword):
-    food_link = f"https://api.spoonacular.com/recipes/complexSearch?query={keyword}&apiKey={spoon_api}&number=1"
+    food_link = f"https://api.spoonacular.com/recipes/complexSearch?query={keyword}&apiKey={spoon_api}&number=5"
     food_data = requests.get(food_link)
     pack_food_data = food_data.json()
     
-    food_object = pack_food_data["results"][0]
+    item_select = random.randint(0, 4)
+    food_object = pack_food_data["results"][item_select]
     food_list = []
     food_list.append(food_object["id"])
     food_list.append(food_object["title"])
@@ -88,9 +89,10 @@ app = Flask(__name__)
 @app.route("/")
 
 def index():
-    keywords = ["cheesecake", "banana pudding", "ice cream", "sundae", 
+    keywords = ["cheesecake", "pudding", "ice cream", "sundae", 
                 "cookie", "doughnut",  "tiramisu", "creme brulee",
-                "smores", "churro", "gelato", "tart", "pie"]
+                 "cake", "gelato", "tart", "pie", "custard", 
+                 "tres leches", "jello", "sugar"]
             
 
 #Generate the proper tweets, recipes
