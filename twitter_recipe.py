@@ -41,11 +41,13 @@ def get_tweet(auth, keyword):
     
 #Grab food information using keyword
 def get_food(keyword):
-    food_link = f"https://api.spoonacular.com/recipes/complexSearch?query={keyword}&apiKey={spoon_api}&number=1"
+    food_link = f"https://api.spoonacular.com/recipes/complexSearch?query={keyword}&apiKey={spoon_api}&number=3"
     food_data = requests.get(food_link)
     pack_food_data = food_data.json()
     
-    food_object = pack_food_data["results"][0]
+    item_select = random.randint(0, 2)
+    
+    food_object = pack_food_data["results"][item_select]
     food_list = []
     food_list.append(food_object["id"])
     food_list.append(food_object["title"])
