@@ -13,34 +13,34 @@ This website displays recipe information and tweets of a randomly selected dish.
 6. Clone this repository<br>
 7. Install tweepy by running the following in your terminal (depending on which version of pip you are using):<br>
 
-        sudo pip install tweepy -or-<br>
-        sudo pip3 install tweepy<br>
+        sudo pip install tweepy -or-
+        sudo pip3 install tweepy
         
 8. Install flask by running the following in your terminal (depending on which version of pip you are using):<br>
 
-        sudo pip install flask -or-<br>
-        sudo pip3 install flask<br>
+        sudo pip install flask -or-
+        sudo pip3 install flask
     
 9. Install python-dotenv by running the following in your terminal (depending on which version of pip you are using):<br>
 
-        sudo pip install python-dotenv -or-<br>
-        sudo pip3 install python-dotenv<br>
+        sudo pip install python-dotenv -or-
+        sudo pip3 install python-dotenv
         
 10. Create a root-level .env file and add your keys as follows:<br>
 
-        export ACCESS_TOKEN=""<br>
-        export ACCESS_TOKEN_SECRET=""<br>
-        export API_KEY=""<br>
-        export API_SECRET_KEY=""<br>
-        export SPOONACULAR_API=""<br>
+        export ACCESS_TOKEN=""
+        export ACCESS_TOKEN_SECRET=""
+        export API_KEY=""
+        export API_SECRET_KEY=""
+        export SPOONACULAR_API=""
         
 11. Source your .env file by running the following in your terminal:<br>
 
-        source [filename].env<br>
+        source [filename].env
         
 12. Execute the program by running the following in your terminal:<br>
         
-        python twitter_recipe.py<br>
+        python twitter_recipe.py
     
 <b>Technical Issues I encountered:</b><br>
     Originally, I attempted to grab Tweets by starting a stream. It was difficult to work with because the
