@@ -2,7 +2,7 @@
 
 This website displays recipe information and tweets of a randomly selected dish.
 
-In order to use this repository:
+<b>In order to use this repository:</b>
 
 0. Sign up for a Twitter developer account at: https://developer.twitter.com
 1. Create a new app: https://developer.twitter.com/en/portal/projects-and-apps
@@ -48,7 +48,7 @@ In order to use this repository:
     my tweet search off. I ultimately created a list of hard-coded food items. From this list, I was able to
     run both the tweet and recipe search successfully without worrying if they were going to relate to
     each other or not.<br><br>
-    3. After switching gears from pulling random recipes to instead hard-coding a list of food items and randomly
+    After switching gears from pulling random recipes to instead hard-coding a list of food items and randomly
     selecting from there, I had to in turn change the API calls for the recipe. It was mostly difficult
     for me to grab the list of ingredients. After reading through the Spoonacular docs, I found that I was
     able to achieve this by splitting the food portion of app into two different API calls:<br>
