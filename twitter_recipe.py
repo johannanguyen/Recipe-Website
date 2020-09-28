@@ -57,7 +57,7 @@ def get_food(keyword):
     
 
 #Grab source and recipe data using food id
-#Reutns a list containing [source name, source url, prep time, ingredient 1, ingredient 2, ... , ingredient length]
+#Returns a list containing [source name, source url, prep time, ingredient 1, ingredient 2, ... , ingredient length]
 def get_source_recipe(food_id):
     source_recipe_link = f"https://api.spoonacular.com/recipes/{food_id}/information?includeNutrition=false&apiKey={spoon_api}"
     source_recipe_data = requests.get(source_recipe_link)
@@ -83,7 +83,7 @@ app = Flask(__name__)
 
 def index():
     
-    #Randomly selects form one of these keywords
+    #Randomly selects from one of these keywords
     keywords = ["cheesecake", "pudding", "ice cream", "sundae", 
                 "cookie", "doughnut",  "tiramisu", "creme brulee",
                  "cake", "gelato", "tart", "pie", "custard", 
