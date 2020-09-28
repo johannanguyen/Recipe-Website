@@ -89,6 +89,7 @@ a:active,a:visited,a:link
     color:#000000;
     font-family: Garamond;
     text-transform: uppercase;
+    text-decoration: underline;
     font-weight:normal;
     cursor:default;
     display:block;
