@@ -86,8 +86,7 @@ def index():
     #Randomly selects from one of these keywords
     keywords = ["cheesecake", "pudding", "ice cream", "sundae", 
                 "cookie", "doughnut",  "tiramisu", "creme brulee",
-                 "cake", "gelato", "tart", "pie", "custard", 
-                 "tres leches", "jello", "sugar"]
+                 "cake", "pie", "custard", "sugar"]
             
 
     #Generate the proper tweets, recipes
