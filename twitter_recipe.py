@@ -1,16 +1,13 @@
 import json
-from flask import Flask, render_template #so we don't need to add "flask.Flask, flask.render_template
+from flask import Flask, render_template
 import os
 import requests
 import random
 from tweepy.streaming import StreamListener
-from tweepy import OAuthHandler
-from tweepy import Stream
-from tweepy import API
-from tweepy import Cursor
+from tweepy import *
 
 
-#Gather keys for API use
+#Gather keys from .env for API use
 api_key = os.environ["API_KEY"]
 api_secret_key = os.environ["API_SECRET_KEY"]
 access_token = os.environ["ACCESS_TOKEN"]
@@ -24,7 +21,9 @@ auth.set_access_token(access_token, access_token_secret)
 auth_api = API(auth)
 
 
-#Grab 1 tweet using keyword
+#Grab 3 tweets using keyword
+#Returns a list of lists
+#Each individual list includes [image, author, screen name, tweet text, date created]
 def get_tweet(auth, keyword):
     tweet_list = []
     for tweet in Cursor(auth_api.search, q=keyword, lang="en").items(3):
@@ -40,12 +39,14 @@ def get_tweet(auth, keyword):
     
     
 #Grab food information using keyword
+#Pulls up three food objects and randomly selects from one of those three
+#Returns a list containing [id, title, image]
 def get_food(keyword):
-    food_link = f"https://api.spoonacular.com/recipes/complexSearch?query={keyword}&apiKey={spoon_api}&number=5"
+    food_link = f"https://api.spoonacular.com/recipes/complexSearch?query={keyword}&apiKey={spoon_api}&number=3"
     food_data = requests.get(food_link)
     pack_food_data = food_data.json()
     
-    item_select = random.randint(0, 4)
+    item_select = random.randint(0, 2)
     food_object = pack_food_data["results"][item_select]
     food_list = []
     food_list.append(food_object["id"])
@@ -55,7 +56,8 @@ def get_food(keyword):
     return food_list
     
 
-#Grab source data using keyword
+#Grab source and recipe data using food id
+#Reutns a list containing [source name, source url, prep time, ingredient 1, ingredient 2, ... , ingredient length]
 def get_source_recipe(food_id):
     source_recipe_link = f"https://api.spoonacular.com/recipes/{food_id}/information?includeNutrition=false&apiKey={spoon_api}"
     source_recipe_data = requests.get(source_recipe_link)
@@ -64,6 +66,7 @@ def get_source_recipe(food_id):
     source_recipe = []
     source_recipe.append(pack_source_recipe_data["sourceName"])
     source_recipe.append(pack_source_recipe_data["sourceUrl"])
+    source_recipe.append(pack_source_recipe_data["readyInMinutes"])
     
     recipe_object = pack_source_recipe_data["extendedIngredients"]
     length = len(recipe_object)
@@ -79,13 +82,15 @@ app = Flask(__name__)
 @app.route("/")
 
 def index():
+    
+    #Randomly selects form one of these keywords
     keywords = ["cheesecake", "pudding", "ice cream", "sundae", 
                 "cookie", "doughnut",  "tiramisu", "creme brulee",
                  "cake", "gelato", "tart", "pie", "custard", 
                  "tres leches", "jello", "sugar"]
             
 
-#Generate the proper tweets, recipes
+    #Generate the proper tweets, recipes
     selected_keyword = random.choice(keywords)
     tweet = get_tweet(auth_api, selected_keyword)
     food = get_food(selected_keyword)

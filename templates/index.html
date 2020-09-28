@@ -14,7 +14,9 @@
             <div class = "ingredients">
                 <p class ="header">{{ food[1] }}</p>
                 <p class = "text">
-                    {%for i in range(2, len)%} 
+                    <b>Prep time: {{ source_recipe[2] }} minutes</b><br>
+                    
+                    {%for i in range(3, len)%} 
                       {{source_recipe[i]}}<br>
                     {%endfor%} 
                 </p>
