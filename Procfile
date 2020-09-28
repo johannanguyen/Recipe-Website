@@ -1,1 +1,1 @@
-web: twitter_recipe.py
+web: python twitter_recipe.py
