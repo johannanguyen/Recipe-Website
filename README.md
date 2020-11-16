@@ -1,5 +1,3 @@
-https://serene-badlands-20301.herokuapp.com/
-
 This website displays recipe information and tweets of a randomly selected dish.
 
 <b>In order to use this repository:</b>
